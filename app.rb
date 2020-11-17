@@ -2,8 +2,13 @@
 require 'rubygems'
 require 'sinatra'
 require 'sinatra/reloader'
+require 'sinatra/activerecord'
 
-#test commit
+set :database, { adapter: 'sqlite3', database: 'pizzashop.db' }
+
+class Product < ActiveRecord::Base
+
+end
 
 get '/' do
 	erb :index
