@@ -11,6 +11,7 @@ class Product < ActiveRecord::Base
 end
 
 get '/' do
+	@products = Product.order 'title'
 	erb :index
 end
 

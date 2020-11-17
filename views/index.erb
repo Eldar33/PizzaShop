@@ -1,2 +1,15 @@
 <h2>Welcome to Pizza Shop</h2>
 <button class="btn btn-primary btn-lg" onclick="something()">Click me</button>
+
+<div class="container">
+  <div class="row">  	
+  	<%(1..5).each do%>
+  	<%@products.each do |product|%>
+    <div class="col-md-2 align-self-center">    	
+    	<img src="<%=product.path_to_image%>"/> 
+    </div>
+    <%end%> 
+    <%end%>   
+  </div>
+</div>
+
