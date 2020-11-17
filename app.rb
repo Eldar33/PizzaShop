@@ -3,6 +3,8 @@ require 'rubygems'
 require 'sinatra'
 require 'sinatra/reloader'
 
+#test commit
+
 get '/' do
 	erb :index
 end
