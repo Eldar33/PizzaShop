@@ -1,15 +1,38 @@
 <h2>Welcome to Pizza Shop</h2>
-<button class="btn btn-primary btn-lg" onclick="something()">Click me</button>
+
+<br>
+<br>
 
 <div class="container">
   <div class="row">  	
-  	<%(1..5).each do%>
   	<%@products.each do |product|%>
-    <div class="col-md-2 align-self-center">    	
-    	<img src="<%=product.path_to_image%>"/> 
+    <div class="col-md-3">
+    	<div>
+    		<%=product.title%>    	
+    	</div>
+    	<div>
+    		<img src="<%=product.path_to_image%>"/>   	
+    	</div>
+    	<div>
+    		<%=product.description%>
+    	</div>
+    	<div>
+    		Размер <%=product.size%> см
+    	</div>
+    	<div>
+    		Цена <%=product.price%> руб.
+    	</div>
+
+    	<div>
+    		<button class = "btn btn-success" onclick="add_to_cart(<%=product.id%>)">В корзину</button>
+    	</div>
+    	
     </div>
     <%end%> 
-    <%end%>   
   </div>
 </div>
+
+<br>
+<br>
+<button class="btn btn-primary btn-lg" onclick="get_cnt_products()">Click me</button>
 
