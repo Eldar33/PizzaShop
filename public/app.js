@@ -18,14 +18,16 @@ function add_to_cart(product_id) {
 	window.localStorage.setItem(key, x);
 }
 
-function get_cnt_products() {
+function get_number_product_in_cart() {
 	var total = 0;
 	for (var i = 0; i < window.localStorage.length; i++) {
-
 		key = window.localStorage.key(i);
-		total = total + window.localStorage.getItem(key) * 1;
+		if (key.indexOf('product_') == 0){			
+			total = total + window.localStorage.getItem(key) * 1;
+		}
 	}
 	alert('В корзине ' + total + ' товаров');
+	return total
 }
 
 
