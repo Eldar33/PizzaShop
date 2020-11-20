@@ -20,5 +20,19 @@ get '/about' do
 end
 
 post '/cart' do
-  erb "Hello World"
+	@orders_input = params[:orders]
+	arr = @orders_input.split ','
+
+	@cnt_products = {}
+
+	arr.each do |item|
+		pair = item.split '='
+		key = (pair[0].delete_prefix 'product_').to_i
+		value = pair[1].to_i
+		@cnt_products[key] = value
+	end
+
+	@cart = Product.where 'id in (?)', @cnt_products.keys
+
+  	erb :cart
 end
