@@ -1,65 +1,69 @@
+
+
 <h2>Корзина: </h2>
 
-<table class="table">
-  <thead class="thead-dark">
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">Продукт</th>
-      <th scope="col">Описание</th>
-      <th scope="col">Количество</th>
-      <th scope="col">Цена</th>
-      <th scope="col">Сумма</th>
-    </tr>
-  </thead>
-  <tbody>
+<div id="cart">
+	<table class="table">
+	  <thead class="thead-dark">
+	    <tr>
+	      <th scope="col">#</th>
+	      <th scope="col">Продукт</th>
+	      <th scope="col">Описание</th>
+	      <th scope="col">Количество</th>
+	      <th scope="col">Цена</th>
+	      <th scope="col">Сумма</th>
+	    </tr>
+	  </thead>
+	  <tbody>
 
-  	<%i = 0%>
-  	<%total_cnt = 0%>
-  	<%total_sum = 0%>
-  	<%@cart.each do |row|%>
-  	<%i = i + 1%>
-    <tr>
-      <th scope="row"><%=i%></th>
-      <td><%=row.title%></td>
-      <td><%=row.description%></td>
-      <td align="right"><%=@cnt_products[row.id]%></td>
-      <td align="right"><%=row.price%></td>
-      <td align="right"><%=@cnt_products[row.id] * row.price%></td>
-    </tr>
-    <%total_cnt = total_cnt + @cnt_products[row.id]%>
-  	<%total_sum = total_sum + @cnt_products[row.id] * row.price%>
-    <%end%>
+	  	<%i = 0%>
+	  	<%total_cnt = 0%>
+	  	<%total_sum = 0%>
+	  	<%@cart.each do |row|%>
+	  	<%i = i + 1%>
+	    <tr>
+	      <th scope="row"><%=i%></th>
+	      <td><%=row.title%></td>
+	      <td><%=row.description%></td>
+	      <td align="right"><%=@cnt_products[row.id]%></td>
+	      <td align="right"><%=row.price%></td>
+	      <td align="right"><%=@cnt_products[row.id] * row.price%></td>
+	    </tr>
+	    <%total_cnt = total_cnt + @cnt_products[row.id]%>
+	  	<%total_sum = total_sum + @cnt_products[row.id] * row.price%>
+	    <%end%>
 
-    <tr>
-    	<td></td>
-    	<td></td>
-    	<td align="right"><b>Итого</b></td>
-    	<td align="right"><b><%=total_cnt%></b></td>
-    	<td></td>
-    	<td align="right"><b><%=total_sum%></b></td>
-    </tr>
-    
-  </tbody>
-</table>
+	    <tr>
+	    	<td></td>
+	    	<td></td>
+	    	<td align="right"><b>Итого</b></td>
+	    	<td align="right"><b><%=total_cnt%></b></td>
+	    	<td></td>
+	    	<td align="right"><b><%=total_sum%></b></td>
+	    </tr>
+	    
+	  </tbody>
+	</table>
 
-<form action="/place_order" method="POST">
+	<form action="/place_order" method="POST">
 
-	<input type="hidden" name="order[orders_input]" value="<%=@orders_input%>">
-	
-	<div class="form-group">
-		<label>ФИО:</label>
-		<input id="fio" name="order[fio]" type="text" class="form-control" placeholder="Введите ФИО"/>
-	</div>
-	<div class="form-group">
-		<label>Телефон:</label>
-		<input id="phone" name="order[phone]" type="text" class="form-control" placeholder="Введите телефон"/>
-	</div>
-	<div class="form-group">
-		<label>Адрес доставки:</label>
-		<textarea id="address" name="order[address]" class="form-control" placeholder="Введите адрес"></textarea>
-	</div>
-	<div class="form-group">
-		<input type="submit" name="place_order" class="btn btn-primary btn-lg" value="Заказать" />
-	</div>
+		<input type="hidden" name="order[orders_input]" value="<%=@orders_input%>">
+		
+		<div class="form-group">
+			<label>ФИО:</label>
+			<input id="fio" name="order[fio]" type="text" class="form-control" placeholder="Введите ФИО"/>
+		</div>
+		<div class="form-group">
+			<label>Телефон:</label>
+			<input id="phone" name="order[phone]" type="text" class="form-control" placeholder="Введите телефон"/>
+		</div>
+		<div class="form-group">
+			<label>Адрес доставки:</label>
+			<textarea id="address" name="order[address]" class="form-control" placeholder="Введите адрес"></textarea>
+		</div>
+		<button type="submit" name="place_order" class="btn btn-primary btn-lg" >Заказать</button>
+		<button name="сlear_cart" class="btn btn-danger btn-lg" onclick="clear_cart(); return false" >Очистить</button>
 
-</form>
+	</form>
+</div>
+

@@ -65,6 +65,10 @@ function get_cart_orders() {
 
 function clear_cart() {
 	window.localStorage.clear();
+	update_orders_input();
+	update_orders_button();
+
+	$('#cart').text('Ваша корзина пуста!')
 }
 
 
