@@ -38,7 +38,11 @@ post '/cart' do
 
 	@cart = Product.where 'id in (?)', @cnt_products.keys
 
-  	erb :cart
+	if @cart.size > 0
+  		erb :cart
+  	else
+  		erb :empty_cart
+  	end
 end
 
 post '/place_order' do
