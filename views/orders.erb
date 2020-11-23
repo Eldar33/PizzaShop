@@ -1,0 +1,29 @@
+
+<h2>Заказы</h2>
+
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">ФИО</th>
+      <th scope="col">Телефон</th>
+      <th scope="col">Адрес</th>
+      <th scope="col">Содержимое</th>
+    </tr>
+  </thead>
+  <tbody>
+
+  	<%i = 0%>
+  	<%@orders.each do |row|%>
+  	<%i = i + 1%>
+    <tr>
+      <th scope="row"><%=i%></th>
+      <td><%=row.fio%></td>
+      <td><%=row.phone%></td>
+      <td><%=row.address%></td>
+      <td><%=row.orders_input%></td>
+    </tr>
+    <%end%>
+   
+  </tbody>
+</table>

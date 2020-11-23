@@ -63,5 +63,9 @@ function get_cart_orders() {
 	return result;
 }
 
+function clear_cart() {
+	window.localStorage.clear();
+}
+
 
 

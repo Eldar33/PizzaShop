@@ -48,18 +48,18 @@
 	
 	<div class="form-group">
 		<label>ФИО:</label>
-		<input id="fio" name="fio" type="text" class="form-control" placeholder="Введите ФИО"/>
+		<input id="fio" name="order[fio]" type="text" class="form-control" placeholder="Введите ФИО"/>
 	</div>
 	<div class="form-group">
 		<label>Телефон:</label>
-		<input id="phone" name="phone" type="text" class="form-control" placeholder="Введите телефон"/>
+		<input id="phone" name="order[phone]" type="text" class="form-control" placeholder="Введите телефон"/>
 	</div>
 	<div class="form-group">
 		<label>Адрес доставки:</label>
-		<textarea id="address" name="address" class="form-control" placeholder="Введите адрес"></textarea>
+		<textarea id="address" name="order[address]" class="form-control" placeholder="Введите адрес"></textarea>
 	</div>
 	<div class="form-group">
-		<input type="submit" name="do_order" class="btn btn-primary btn-lg" value="Заказать" />
+		<input type="submit" name="place_order" class="btn btn-primary btn-lg" value="Заказать" />
 	</div>
 
 </form>

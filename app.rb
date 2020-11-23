@@ -10,6 +10,10 @@ class Product < ActiveRecord::Base
 
 end
 
+class Order < ActiveRecord::Base
+
+end
+
 get '/' do
 	@products = Product.order 'title'
 	erb :index
@@ -35,4 +39,19 @@ post '/cart' do
 	@cart = Product.where 'id in (?)', @cnt_products.keys
 
   	erb :cart
+end
+
+post '/place_order' do
+
+	order = Order.new params[:order]
+	order.save
+
+	erb :place_order
+end
+
+get '/orders' do 
+
+	@orders = Order.all
+	erb :orders
+
 end
