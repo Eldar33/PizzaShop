@@ -1,15 +1,4 @@
 
-function something() {
-
-	var x = window.localStorage.getItem('x');
-
-	x = x * 1 + 1;
-
-	alert(x);
-
-	window.localStorage.setItem('x', x)
-	
-}
 
 function add_to_cart(product_id) {
 	var key = 'product_' + product_id

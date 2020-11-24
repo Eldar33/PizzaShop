@@ -55,7 +55,7 @@ end
 
 get '/orders' do 
 
-	@orders = Order.all
+	@orders = Order.order 'created_at DESC'
 	erb :orders
 
 end
